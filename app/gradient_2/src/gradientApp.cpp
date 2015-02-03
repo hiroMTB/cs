@@ -43,7 +43,7 @@ void gradientApp::setup(){
         for (int y=0; y<mWin_h; y++){
             Vec2i pos(x, y);
             float rate = (float)x/mWin_w;
-            ColorAf col( 0.2, rate, rate, 1);
+            ColorAf col( 0.2, 1-rate, rate, 1);
             //ColorAf col(1,1,1,1);
             mSur.setPixel( pos, col );
         }
@@ -55,8 +55,10 @@ void gradientApp::setup(){
      *      See here http://goo.gl/TAjPbX
      */
     mExp.setup( mWin_w, mWin_h, 100, GL_RGBA16F_ARB, cs::getRenderPath(), 0);
-    //mExp.setup( mWin_w, mWin_h, 100, GL_RGBA, 0);
+
+#ifdef RENDER
     mExp.startRender();
+#endif
     
     mPln.setOctaves(16);
 }
@@ -118,7 +120,10 @@ void gradientApp::keyDown( KeyEvent event ) {
         case 'T':
             mExp.stopRender();
             break;
-            
+        
+        case ' ':
+            mExp.snapShot();
+            break;
     }
 }
 

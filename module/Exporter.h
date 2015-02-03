@@ -22,6 +22,7 @@ class Exporter{
 public:
     
     bool bRender;
+    bool bSnap;
     int mFrame;
     int mExitFrame;
     gl::Fbo mFbo;
@@ -63,10 +64,10 @@ public:
     void end(){
         mFbo.unbindFramebuffer();
         
-        if( bRender ){
+        if( bRender || bSnap ){
             Surface16u sur( mFbo.getTexture() );
             string frame_name = "f_" + toString( mFrame ) + ".tif";
-            writeImage( mRenderPath/frame_name,  sur, mImgWOption );
+            writeImage( mRenderPath/frame_name,  sur);
             cout << "Render Image : " << mFrame << endl;
             mFrame++;
             
@@ -74,6 +75,8 @@ public:
                 cout << "Finish Rendering " << mFrame << " frames" << endl;
                 exit(1);
             }
+            
+            bSnap = false;
         }
     }
     
@@ -86,6 +89,10 @@ public:
     void stopRender(){
         bRender = false;
         cout << "Stop Render : f_" << mFrame << endl;
+    }
+    
+    void snapShot(){
+        bSnap = true;
     }
     
     void draw(){

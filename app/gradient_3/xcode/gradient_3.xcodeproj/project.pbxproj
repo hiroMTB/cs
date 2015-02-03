@@ -63,7 +63,8 @@
 		6A1BED851A805C9B0097DB70 /* gradient_3.c.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_3.c.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1BEDA81A805CE50097DB70 /* gradient_3.d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_3.d.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1BEDA91A805ED90097DB70 /* gradient_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gradient_3.plist; sourceTree = "<group>"; };
-		6A908C761A7F45BB003A1461 /* gradient_2.b.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_2.b.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A1BEDB01A8064100097DB70 /* StrangeEgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrangeEgent.h; sourceTree = "<group>"; };
+		6A908C761A7F45BB003A1461 /* gradient_2.b.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = gradient_2.b.app; path = gradient_3.b.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A908C851A7F5261003A1461 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
 		6A908C861A7F5261003A1461 /* csUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csUtil.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* gradient_3.a.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_3.a.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +232,7 @@
 			children = (
 				6A908C851A7F5261003A1461 /* Exporter.h */,
 				6A908C861A7F5261003A1461 /* csUtil.h */,
+				6A1BEDB01A8064100097DB70 /* StrangeEgent.h */,
 			);
 			name = module;
 			path = ../../../module;
