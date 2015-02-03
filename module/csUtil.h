@@ -56,4 +56,16 @@ namespace cs {
     fs::path getRenderPath(){
         return expandPath("../../../_render/")/getTimeStamp();
     }
+    
+    void normalizeColor( ColorAf & col ){
+        col.r = MIN(col.r, 1);
+        col.g = MIN(col.g, 1);
+        col.b = MIN(col.b, 1);
+        col.a = MIN(col.a, 1);
+
+        col.r = MAX(0, col.r);
+        col.g = MAX(0, col.g);
+        col.b = MAX(0, col.b);
+        col.a = MAX(0, col.a);
+    }
 }
