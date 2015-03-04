@@ -57,22 +57,45 @@ namespace cs {
         return expandPath("../../../_render/")/getTimeStamp();
     }
     
-    void cropColor( ColorAf & col ){
+    
+    
+    /*
+     *
+     *       Color related helper func
+     *
+     */
+    
+    // this does work but strange behavior !!
+    /*
+     inline ColorAf getColorFromItr( const Surface16u::Iter & itr ){
+        return ColorAf(itr.r(), itr.g(), itr.b(), itr.a() );
+    }
+     */
+    
+    // this does not work!!
+    /*
+     inline void setColorToItr( Surface16u::Iter & itr, const ColorAf & col ){
+        itr.r() = col.r;
+        itr.g() = col.g;
+        itr.b() = col.b;
+        itr.a() = col.a;
+    }
+     */
+    
+    void clampColor( ColorAf & col ){
         col.r = math<float>::clamp(col.r,0,1);
         col.g = math<float>::clamp(col.g,0,1);
         col.b = math<float>::clamp(col.b,0,1);
         col.a = math<float>::clamp(col.a,0,1);
     }
     
-    void fillSurface( Surface16u sur, ColorAf col){
+    void fillSurface( Surface16u & sur, const ColorAf & col){
 
         Surface16u::Iter itr = sur.getIter();
         while (itr.line() ) {
             while( itr.pixel()){
-                itr.r() = col.r;
-                itr.g() = col.g;
-                itr.b() = col.b;
-                itr.a() = col.a;
+                //setColorToItr( itr, col );
+                sur.setPixel(itr.getPos(), col);
             }
         }
     }
