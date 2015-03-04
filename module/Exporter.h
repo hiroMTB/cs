@@ -16,7 +16,6 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-
 class Exporter{
     
 public:
@@ -33,6 +32,7 @@ public:
     
     void setup( int width, int height, int exitFrame, GLenum colorInternalFormat, fs::path path, int aaSample ){
         bRender = false;
+        bSnap = false;
         mFrame = 1;
         mExitFrame = exitFrame;
         gl::Fbo::Format format;
