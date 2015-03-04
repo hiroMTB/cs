@@ -15,7 +15,7 @@
 		1DC7386886D84531B3464237 /* gradientApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAC8884F488D48948C266D0F /* gradientApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		6AF38C5C1AA7BF3300529593 /* gradient_LR_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AF38C5B1AA7BF3300529593 /* gradient_LR_1.plist */; };
+		6AF38C641AA7CDFC00529593 /* gradient_LR_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AF38C631AA7CDFC00529593 /* gradient_LR_1.plist */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,11 +32,10 @@
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6A908C851A7F5261003A1461 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
 		6A908C861A7F5261003A1461 /* csUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csUtil.h; sourceTree = "<group>"; };
-		6AF38C5B1AA7BF3300529593 /* gradient_LR_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gradient_LR_1.plist; sourceTree = "<group>"; };
-		6AF38C5D1AA7C09000529593 /* gradient_LR_1_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gradient_LR_1_Prefix.pch; sourceTree = "<group>"; };
+		6AF38C621AA7CDDC00529593 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
+		6AF38C631AA7CDFC00529593 /* gradient_LR_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gradient_LR_1.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* gradient_LR_1.a.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_LR_1.a.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC8884F488D48948C266D0F /* gradientApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = gradientApp.cpp; path = ../src/gradientApp.cpp; sourceTree = "<group>"; };
-		FFC8204E8B6D4EA587F01893 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,20 +57,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
+		080E96DDFE201D6D7F000001 /* src */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = Blocks;
-			sourceTree = "<group>";
-		};
-		080E96DDFE201D6D7F000001 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				6A908C841A7F5261003A1461 /* module */,
 				EAC8884F488D48948C266D0F /* gradientApp.cpp */,
 			);
-			name = Source;
+			name = src;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -109,31 +100,14 @@
 		29B97314FDCFA39411CA2CEA /* gradient */ = {
 			isa = PBXGroup;
 			children = (
-				01B97315FEAEA392516A2CEA /* Blocks */,
-				29B97315FDCFA39411CA2CEA /* Headers */,
-				080E96DDFE201D6D7F000001 /* Source */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
+				6AF38C631AA7CDFC00529593 /* gradient_LR_1.plist */,
+				6AF38C611AA7CDDC00529593 /* include */,
+				6A908C841A7F5261003A1461 /* module */,
+				080E96DDFE201D6D7F000001 /* src */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = gradient;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				FFC8204E8B6D4EA587F01893 /* Resources.h */,
-				6AF38C5D1AA7C09000529593 /* gradient_LR_1_Prefix.pch */,
-				6AF38C5B1AA7BF3300529593 /* gradient_LR_1.plist */,
-			);
-			name = Headers;
-			sourceTree = "<group>";
-		};
-		29B97317FDCFA39411CA2CEA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -153,6 +127,15 @@
 			);
 			name = module;
 			path = ../../../module;
+			sourceTree = "<group>";
+		};
+		6AF38C611AA7CDDC00529593 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6AF38C621AA7CDDC00529593 /* Resources.h */,
+			);
+			name = include;
+			path = ../include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF38C5C1AA7BF3300529593 /* gradient_LR_1.plist in Resources */,
+				6AF38C641AA7CDFC00529593 /* gradient_LR_1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,8 +217,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = gradient_LR_1_Prefix.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -260,8 +243,8 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = gradient_LR_1_Prefix.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
 					"$(inherited)",
@@ -290,7 +273,7 @@
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
-				SHARED_PRECOMPS_DIR = "$(CACHE_ROOT)/SharedPrecompiledHeaders";
+				SHARED_PRECOMPS_DIR = "";
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Debug;
@@ -308,7 +291,7 @@
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
-				SHARED_PRECOMPS_DIR = "$(CACHE_ROOT)/SharedPrecompiledHeaders";
+				SHARED_PRECOMPS_DIR = "";
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Release;
