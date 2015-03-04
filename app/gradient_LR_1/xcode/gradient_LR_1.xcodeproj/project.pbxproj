@@ -46,10 +46,6 @@
 		6A908C701A7F45BB003A1461 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		6A908C711A7F45BB003A1461 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		6A908C721A7F45BB003A1461 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		6AD6E9901A80C4580012EFE8 /* Dna.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD6E98E1A80C4580012EFE8 /* Dna.cpp */; };
-		6AD6E9911A80C4580012EFE8 /* Dna.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD6E98E1A80C4580012EFE8 /* Dna.cpp */; };
-		6AD6E9921A80C4580012EFE8 /* Dna.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD6E98E1A80C4580012EFE8 /* Dna.cpp */; };
-		6AD6E9931A80C4580012EFE8 /* Dna.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD6E98E1A80C4580012EFE8 /* Dna.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,12 +63,9 @@
 		6A1BED851A805C9B0097DB70 /* gradient_5.c.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_5.c.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1BEDA81A805CE50097DB70 /* gradient_5.d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_5.d.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1BEDA91A805ED90097DB70 /* gradient_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gradient_5.plist; sourceTree = "<group>"; };
-		6A1BEDB01A8064100097DB70 /* StrangeAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrangeAgent.h; sourceTree = "<group>"; };
 		6A908C761A7F45BB003A1461 /* gradient_5.b.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_5.b.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A908C851A7F5261003A1461 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
 		6A908C861A7F5261003A1461 /* csUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csUtil.h; sourceTree = "<group>"; };
-		6AD6E98E1A80C4580012EFE8 /* Dna.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dna.cpp; sourceTree = "<group>"; };
-		6AD6E98F1A80C4580012EFE8 /* Dna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dna.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* gradient_5.a.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gradient_5.a.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D966A9AC99414A7BB559EFAD /* gradient_5_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gradient_5_Prefix.pch; sourceTree = "<group>"; };
 		EAC8884F488D48948C266D0F /* gradientApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = gradientApp.cpp; path = ../src/gradientApp.cpp; sourceTree = "<group>"; };
@@ -238,9 +231,6 @@
 			children = (
 				6A908C851A7F5261003A1461 /* Exporter.h */,
 				6A908C861A7F5261003A1461 /* csUtil.h */,
-				6A1BEDB01A8064100097DB70 /* StrangeAgent.h */,
-				6AD6E98E1A80C4580012EFE8 /* Dna.cpp */,
-				6AD6E98F1A80C4580012EFE8 /* Dna.h */,
 			);
 			name = module;
 			path = ../../../module;
@@ -249,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6A1BED751A805C9B0097DB70 /* point_gradient_1.c */ = {
+		6A1BED751A805C9B0097DB70 /* gradient_LR_1.c */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A1BED821A805C9B0097DB70 /* Build configuration list for PBXNativeTarget "point_gradient_1.c" */;
+			buildConfigurationList = 6A1BED821A805C9B0097DB70 /* Build configuration list for PBXNativeTarget "gradient_LR_1.c" */;
 			buildPhases = (
 				6A1BED761A805C9B0097DB70 /* Resources */,
 				6A1BED771A805C9B0097DB70 /* Sources */,
@@ -261,15 +251,15 @@
 			);
 			dependencies = (
 			);
-			name = point_gradient_1.c;
+			name = gradient_LR_1.c;
 			productInstallPath = "$(HOME)/Applications";
 			productName = gradient;
 			productReference = 6A1BED851A805C9B0097DB70 /* gradient_5.c.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6A1BED981A805CE50097DB70 /* point_gradient_1.d */ = {
+		6A1BED981A805CE50097DB70 /* gradient_LR_1.d */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A1BEDA51A805CE50097DB70 /* Build configuration list for PBXNativeTarget "point_gradient_1.d" */;
+			buildConfigurationList = 6A1BEDA51A805CE50097DB70 /* Build configuration list for PBXNativeTarget "gradient_LR_1.d" */;
 			buildPhases = (
 				6A1BED991A805CE50097DB70 /* Resources */,
 				6A1BED9A1A805CE50097DB70 /* Sources */,
@@ -279,15 +269,15 @@
 			);
 			dependencies = (
 			);
-			name = point_gradient_1.d;
+			name = gradient_LR_1.d;
 			productInstallPath = "$(HOME)/Applications";
 			productName = gradient;
 			productReference = 6A1BEDA81A805CE50097DB70 /* gradient_5.d.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6A908C651A7F45BB003A1461 /* point_gradient_1.b */ = {
+		6A908C651A7F45BB003A1461 /* gradient_LR_1.b */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A908C731A7F45BB003A1461 /* Build configuration list for PBXNativeTarget "point_gradient_1.b" */;
+			buildConfigurationList = 6A908C731A7F45BB003A1461 /* Build configuration list for PBXNativeTarget "gradient_LR_1.b" */;
 			buildPhases = (
 				6A908C661A7F45BB003A1461 /* Resources */,
 				6A908C681A7F45BB003A1461 /* Sources */,
@@ -297,15 +287,15 @@
 			);
 			dependencies = (
 			);
-			name = point_gradient_1.b;
+			name = gradient_LR_1.b;
 			productInstallPath = "$(HOME)/Applications";
 			productName = gradient;
 			productReference = 6A908C761A7F45BB003A1461 /* gradient_5.b.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8D1107260486CEB800E47090 /* point_gradient_1.a */ = {
+		8D1107260486CEB800E47090 /* gradient_LR_1.a */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_gradient_1.a" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "gradient_LR_1.a" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -315,7 +305,7 @@
 			);
 			dependencies = (
 			);
-			name = point_gradient_1.a;
+			name = gradient_LR_1.a;
 			productInstallPath = "$(HOME)/Applications";
 			productName = gradient;
 			productReference = 8D1107320486CEB800E47090 /* gradient_5.a.app */;
@@ -328,7 +318,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_gradient_1" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "gradient_LR_1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -342,10 +332,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* point_gradient_1.a */,
-				6A908C651A7F45BB003A1461 /* point_gradient_1.b */,
-				6A1BED751A805C9B0097DB70 /* point_gradient_1.c */,
-				6A1BED981A805CE50097DB70 /* point_gradient_1.d */,
+				8D1107260486CEB800E47090 /* gradient_LR_1.a */,
+				6A908C651A7F45BB003A1461 /* gradient_LR_1.b */,
+				6A1BED751A805C9B0097DB70 /* gradient_LR_1.c */,
+				6A1BED981A805CE50097DB70 /* gradient_LR_1.d */,
 			);
 		};
 /* End PBXProject section */
@@ -391,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A1BED781A805C9B0097DB70 /* gradientApp.cpp in Sources */,
-				6AD6E9921A80C4580012EFE8 /* Dna.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +389,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A1BED9B1A805CE50097DB70 /* gradientApp.cpp in Sources */,
-				6AD6E9931A80C4580012EFE8 /* Dna.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +397,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A908C691A7F45BB003A1461 /* gradientApp.cpp in Sources */,
-				6AD6E9911A80C4580012EFE8 /* Dna.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DC7386886D84531B3464237 /* gradientApp.cpp in Sources */,
-				6AD6E9901A80C4580012EFE8 /* Dna.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,7 +660,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6A1BED821A805C9B0097DB70 /* Build configuration list for PBXNativeTarget "point_gradient_1.c" */ = {
+		6A1BED821A805C9B0097DB70 /* Build configuration list for PBXNativeTarget "gradient_LR_1.c" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A1BED831A805C9B0097DB70 /* Debug */,
@@ -683,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A1BEDA51A805CE50097DB70 /* Build configuration list for PBXNativeTarget "point_gradient_1.d" */ = {
+		6A1BEDA51A805CE50097DB70 /* Build configuration list for PBXNativeTarget "gradient_LR_1.d" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A1BEDA61A805CE50097DB70 /* Debug */,
@@ -692,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A908C731A7F45BB003A1461 /* Build configuration list for PBXNativeTarget "point_gradient_1.b" */ = {
+		6A908C731A7F45BB003A1461 /* Build configuration list for PBXNativeTarget "gradient_LR_1.b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A908C741A7F45BB003A1461 /* Debug */,
@@ -701,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_gradient_1.a" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "gradient_LR_1.a" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -710,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_gradient_1" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "gradient_LR_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

@@ -57,15 +57,28 @@ namespace cs {
         return expandPath("../../../_render/")/getTimeStamp();
     }
     
-    void normalizeColor( ColorAf & col ){
-        col.r = MIN(col.r, 1);
-        col.g = MIN(col.g, 1);
-        col.b = MIN(col.b, 1);
-        col.a = MIN(col.a, 1);
-
-        col.r = MAX(0, col.r);
-        col.g = MAX(0, col.g);
-        col.b = MAX(0, col.b);
-        col.a = MAX(0, col.a);
+    void cropColor( ColorAf & col ){
+        col.r = math<float>::clamp(col.r,0,1);
+        col.g = math<float>::clamp(col.g,0,1);
+        col.b = math<float>::clamp(col.b,0,1);
+        col.a = math<float>::clamp(col.a,0,1);
     }
+    
+    void fillSurface( Surface16u sur, ColorAf col){
+
+        Surface16u::Iter itr = sur.getIter();
+        while (itr.line() ) {
+            while( itr.pixel()){
+                itr.r() = col.r;
+                itr.g() = col.g;
+                itr.b() = col.b;
+                itr.a() = col.a;
+            }
+        }
+    }
+    
+    float distanceToLine(Ray ray, Vec3f point){
+        return cross(ray.getDirection(), point - ray.getOrigin()).length();
+    }
+
 }
