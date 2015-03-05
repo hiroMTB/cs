@@ -59,11 +59,22 @@ namespace cs {
     
     
     
+    
     /*
      *
      *       Color related helper func
      *
      */
+    
+    ColorAf mixColor( ColorAf & colA, const ColorAf & colB ){
+        colA.g -= colB.r;
+        colA.b -= colB.r;
+        colA.r -= colB.g;
+        colA.b -= colB.g;
+        colA.r -= colB.b;
+        colA.b -= colB.b;
+        
+    }
     
     // this does work but strange behavior !!
     /*

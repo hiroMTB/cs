@@ -30,8 +30,8 @@ class gradientApp : public AppNative {
 	void update();
 	void draw();
 
-    void linearGrad( Surface16u & sur, Ray line, float dist, ColorAf gcol, EaseFunc ease );
-    void radialGrad( Surface16u & sur, Vec2f point, float radius, ColorAf gcol, EaseFunc ease=EaseNone() );
+    void linearGrad( Surface16u & sur, Ray line, float dist, ColorAf colA, ColorAf colB, EaseFunc ease=EaseNone() );
+    void radialGrad( Surface16u & sur, Vec2f point, float radius, ColorAf colA, ColorAf colB, EaseFunc ease=EaseNone() );
     
     int mWin_w = 1920;
     int mWin_h = 1080;
@@ -45,7 +45,7 @@ void gradientApp::setup(){
     
     setWindowPos(0, 0);
     setWindowSize(mWin_w, mWin_h);
-    background.set(0.1, 0.5, 0.5, 1);
+    background.set(0, 0, 0, 1);
     mExp.setup( mWin_w, mWin_h, 100, GL_RGBA16F_ARB, cs::getRenderPath(), 0);
     
 #ifdef RENDER
@@ -56,26 +56,27 @@ void gradientApp::setup(){
     cs::fillSurface(mSur, ColorAf(0,0,0,0) );
     
 #pragma mark LINEAR_GRADIENT
-    if(1){
+    if(0){
         Vec3f dir(1,-1,0);
         Ray line1( Vec3f(mWin_w*0.2,0,0), dir);
         Ray line2( Vec3f(mWin_w*0.4,0,0), dir);
         Ray line3( Vec3f(mWin_w*0.8,0,0), dir);
-        linearGrad( mSur, line1, mWin_w*0.2, ColorAf(0.2,0.3,0.7,1), EaseInOutQuad() );
-        linearGrad( mSur, line2, mWin_w*0.4, ColorAf(0.2,0.2,0.2,1), EaseInOutQuad() );
-        linearGrad( mSur, line3, mWin_w*2.0, ColorAf(0.3,0.2,0.4,1), EaseInOutQuad() );
+        linearGrad( mSur, line1, mWin_w*0.4, ColorAf(0.5,0,0,1), ColorAf(0,0,0.3,1), EaseInOutQuad() );
+        linearGrad( mSur, line2, mWin_w*0.6, ColorAf(0,0.5,0,1), ColorAf(0.3,0,0,1), EaseInOutQuad() );
+        linearGrad( mSur, line3, mWin_w*0.8, ColorAf(0.3,0.2,0.2,1), ColorAf(0,0.3,0.4,1),  EaseInOutQuad() );
     }
     
 #pragma mark RADIAL_GRADIENT
     if(1){
-        float diagonal = sqrt(mWin_w*mWin_w + mWin_h*mWin_h);
-        diagonal *= 0.8;
-        radialGrad( mSur, Vec2f(0,0),            diagonal, ColorAf(0.1, 0.3, 0.7, 1), EaseInOutQuad() );
-        radialGrad( mSur, Vec2f(mWin_w, mWin_h), diagonal, ColorAf(0.6, 0.2, 0.4, 1), EaseInOutQuad() );
+        float diagonal = Vec2i(mWin_w, mWin_h).length();
+        radialGrad( mSur, Vec2f(0,0),                   diagonal*0.8, ColorAf(0.1, 0.3, 0.5, 1), ColorAf(0.3, 0.2, 0, 1), EaseInOutQuad() );
+        radialGrad( mSur, Vec2f(mWin_w, mWin_h),        diagonal*0.8, ColorAf(0.3, 0.1, 0.2, 1), ColorAf(0.1, 0.3, 0.1, 1), EaseInOutQuad() );
+        radialGrad( mSur, Vec2f(mWin_w/2, mWin_h/2),    diagonal*0.5, ColorAf(0.1, 0.1, 0, 1), ColorAf(0, 0.2, 0.4, 1), EaseInOutQuad() );
+        radialGrad( mSur, Vec2f(mWin_w/2, mWin_h),    diagonal*0.5, ColorAf(0, 0.3, 0, 1), ColorAf(0.2, 0.1, 0.4, 1), EaseInOutQuad() );
     }
 }
 
-void gradientApp::linearGrad( Surface16u &sur, Ray line, float max_dist, ColorAf gcol, EaseFunc ease ){
+void gradientApp::linearGrad( Surface16u &sur, Ray line, float max_dist, ColorAf colA, ColorAf colB, EaseFunc ease ){
 
     Surface16u::Iter itr = sur.getIter();
 
@@ -84,19 +85,21 @@ void gradientApp::linearGrad( Surface16u &sur, Ray line, float max_dist, ColorAf
 
             Vec2i pos = itr.getPos();
             float dist = cs::distanceToLine(line, Vec3f(pos.x, pos.y, 0) );
-            float t = dist/max_dist;
-            t = math<float>::clamp(t);
-            float easedVal = ease(t);
-            float rate = 1.0 - easedVal;
-            ColorAf col = sur.getPixel(pos); // cs::getColorFromItr(itr);
-            col += gcol*rate;
-            cs::clampColor(col);
-            sur.setPixel(pos, col);
+            //if( dist <= max_dist){
+                float t = dist/max_dist;
+                t = math<float>::clamp(t);
+                float rate = ease(t);
+                ColorAf col = sur.getPixel(pos); // cs::getColorFromItr(itr);
+                ColorAf adder = colA*(1.0-rate) + colB*rate;
+                col += adder;
+                cs::clampColor(col);
+                sur.setPixel(pos, col);
+            //}
         }
     }
 }
 
-void gradientApp::radialGrad( Surface16u &sur, Vec2f point, float radius, ColorAf gcol, EaseFunc ease){
+void gradientApp::radialGrad( Surface16u &sur, Vec2f point, float radius, ColorAf colA, ColorAf colB, EaseFunc ease){
     
     Surface16u::Iter itr = sur.getIter();
     
@@ -104,16 +107,16 @@ void gradientApp::radialGrad( Surface16u &sur, Vec2f point, float radius, ColorA
         while (itr.pixel()) {
             Vec2i pos = itr.getPos();
             float dist = point.distance(pos);
-            if( dist <= radius ){
+            //if( dist <= radius ){
                 float t = dist/radius;
                 t = math<float>::clamp(t);
-                float easedVal = ease(t);
-                float rate = 1.0 - easedVal;
+                float rate = ease(t);
                 ColorAf col = sur.getPixel(pos); // cs::getColorFromItr(itr);
-                col += gcol*rate;
+                ColorAf adder = colA*(1.0-rate) + colB*rate;
+                col += adder;
                 cs::clampColor(col);
                 sur.setPixel(pos, col);
-            }
+            //}
         }
     }
 }
