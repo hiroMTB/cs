@@ -113,6 +113,29 @@ namespace cs {
             }
         }
     }
+
+    void ellipseGrad( Surface16u &sur, Vec2f point1, Vec2f point2, float radius, ColorAf colA, ColorAf colB, EaseFunc ease){
+        
+        Surface16u::Iter itr = sur.getIter();
+        
+        while (itr.line()) {
+            while (itr.pixel()) {
+                Vec2i pos = itr.getPos();
+                
+                float dist1 = point1.distance(pos);
+                float dist2 = point2.distance(pos);
+                float dist = dist1 + dist2;
+                float t = dist/radius;
+                t = math<float>::clamp(t);
+                float rate = ease(t);
+                ColorAf col = sur.getPixel(pos); // cs::getColorFromItr(itr);
+                ColorAf adder = colA*(1.0-rate) + colB*rate;
+                col += adder;
+                clampColor(col);
+                sur.setPixel(pos, col);
+            }
+        }
+    }
     
     void mixColor( ColorAf & colA, const ColorAf & colB ){
         colA.g -= colB.r;

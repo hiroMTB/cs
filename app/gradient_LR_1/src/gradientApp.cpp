@@ -66,7 +66,9 @@ void gradientApp::update(){
 }
 
 void gradientApp::makeGradient( float frame ){
-    
+
+    float diagonal = Vec2i(mWin_w, mWin_h).length();
+
 #pragma mark LINEAR_GRADIENT
     if(0){
         Vec3f dir(1, 0, 0);
@@ -80,12 +82,16 @@ void gradientApp::makeGradient( float frame ){
     }
     
 #pragma mark RADIAL_GRADIENT
-    if(1){
-        float diagonal = Vec2i(mWin_w, mWin_h).length();
+    if(0){
         cs::radialGrad( mSur, Vec2f(0,0),                   diagonal*frame*0.005, ColorAf(0.1, 0.3, 0.5, 1), ColorAf(0.3, 0.2, 0, 1), EaseInOutQuad() );
         cs::radialGrad( mSur, Vec2f(mWin_w, mWin_h),        diagonal*(1-frame*0.005), ColorAf(0.3, 0.1, 0.2, 1), ColorAf(0.1, 0.3, 0.1, 1), EaseInOutQuad() );
         cs::radialGrad( mSur, Vec2f(mWin_w*0.7-frame*3 , mWin_h*0.5),diagonal*0.6, ColorAf(0.1+frame*0.005, 0.1, 0, 1), ColorAf(0, 0.2, 0.4, 1), EaseInOutQuad() );
         cs::radialGrad( mSur, Vec2f(mWin_w*0.45 - frame*2, mWin_h*0.8 + frame*3),diagonal*0.6, ColorAf(0, 0.3, 0, 1), ColorAf(0.2, 0.1, 0.4, 1), EaseInOutQuad());
+    }
+
+#pragma mark ELLIPSE_GRADIENT
+    if(1){
+        cs::ellipseGrad( mSur, Vec2f(mWin_w*0.2,mWin_h*0.2), Vec2f(mWin_w*0.7,mWin_h*0.7), diagonal*1.5, ColorAf(0.3, 0.6, 0.3, 1), ColorAf(0.1, 0.1, 0.7, 1), EaseInOutQuad() );
     }
 }
 
